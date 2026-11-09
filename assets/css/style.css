@@ -30,18 +30,41 @@
 	font-display: swap;
 }
 
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
 :root {
 	--orange: #ff7a00;
 }
 
 body {
-	font-family: "D-DIN", "Bahnschrift", "Arial Narrow", sans-serif;
+	margin: 0;
+	min-height: 100vh;
+	min-height: 100dvh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	color: white;
 	background-color: black;
+	background-image: url("/assets/images/starfield_desktop.png");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	font-family: "D-DIN", "Bahnschrift", "Arial Narrow", sans-serif;
+}
+
+@media (orientation: portrait) {
+	body {
+		background-image: url("/assets/images/starfield_mobile.png");
+	}
 }
 
 h1 {
 	font-family: "D-DIN Condensed", "Bahnschrift", "Arial Narrow", sans-serif;
+	font-size: clamp(2rem, 1rem + 4vw, 4.5rem);
+	line-height: 1.1;
 }
 
 a {
@@ -61,4 +84,15 @@ a:focus-visible {
 
 .highlight {
 	color: var(--orange);
+}
+
+.container {
+	width: 100%;
+	max-width: 90rem;
+	padding: 2rem 1.5rem;
+}
+
+.logo {
+	width: min(200px, 25vh);
+	height: auto;
 }
